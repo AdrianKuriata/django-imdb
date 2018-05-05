@@ -3,7 +3,7 @@ from django.db import models
 class Movie(models.Model):
     genres = models.ManyToManyField('movies.genre', related_name='movies', blank=True)
     title = models.CharField(max_length=550)
-    slug = models.SlugField(max_length=550)
+    slug = models.SlugField(max_length=550, unique=True)
     excerpt = models.CharField(max_length=300)
     cover = models.ImageField(upload_to='covers', default=None)
     description = models.TextField()
