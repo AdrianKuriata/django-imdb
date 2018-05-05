@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Movies
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+    {% for movie in movies %}
+    <div class="col s12 m6">
+        <div class="card">
+            <div class="card-image">
+                <img src="{% static movie.cover.url %}">
+                <span class="card-title">{{movie.title}}</span>
+            </div>
+            <div class="card-content">
+                <small>{{movie.release_date}}, {{movie.get_human_duration_time}}</small>
+                <p>
+                    {{movie.excerpt}}
+                </p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="s12">
+        <h3>Any movie was not add.</h3>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
