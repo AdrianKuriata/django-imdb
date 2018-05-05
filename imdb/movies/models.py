@@ -17,6 +17,11 @@ class Movie(models.Model):
     def get_human_duration_time(self):
         return '{:02d}h {:02d}m'.format(*divmod(self.duration_time, 60))
 
+    @property
+    def get_cut_excerpt(self):
+        cutted = self.excerpt[:100]
+        return cutted + ' ...'
+
 class Genre(models.Model):
     name = models.CharField(max_length=300)
     slug = models.SlugField(max_length=300)

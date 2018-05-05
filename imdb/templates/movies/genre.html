@@ -7,7 +7,7 @@ Movies
 {% block content %}
 <h4>We have in our database {{counter_movies}} movie{{counter_movies|pluralize}}</h4>
 <div class="row">
-    {% for movie in movies %}
+    {% for movie in genres %}
     <div class="col s12 m4">
         <div class="card hoverable">
             <div class="card-image">
@@ -39,16 +39,16 @@ Movies
     {% endfor %}
 </div>
 <ul class="pagination">
-    {% if movies.has_previous %}
+    {% if genres.has_previous %}
         <li class="waves-effect"><a href="?page=1">&laquo; first</a></li>
-        <li class="waves-effect"><a href="?page={{ movies.previous_page_number }}">previous</a></li>
+        <li class="waves-effect"><a href="?page={{ genres.previous_page_number }}">previous</a></li>
     {% endif %}
 
-        <li class="active"><a href="#!">Page {{ movies.number }} of {{ movies.paginator.num_pages }}.</a></li>
+        <li class="active"><a href="#!">Page {{ genres.number }} of {{ genres.paginator.num_pages }}.</a></li>
 
-    {% if movies.has_next %}
-        <li class="waves-effect"><a href="?page={{ movies.next_page_number }}">next</a></li>
-        <li class="waves-effect"><a href="?page={{ movies.paginator.num_pages }}">last &raquo;</a></li>
+    {% if genres.has_next %}
+        <li class="waves-effect"><a href="?page={{ genres.next_page_number }}">next</a></li>
+        <li class="waves-effect"><a href="?page={{ genres.paginator.num_pages }}">last &raquo;</a></li>
     {% endif %}
   </ul>
 {% endblock content %}
