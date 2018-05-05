@@ -10,7 +10,7 @@ Movies
     <div class="col s12 m6">
         <div class="card">
             <div class="card-image">
-                <img src="{% static movie.cover.url %}">
+                <img src="{{ movie.cover.url}}">
                 <span class="card-title">{{movie.title}}</span>
             </div>
             <div class="card-content">

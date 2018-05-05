@@ -17,9 +17,11 @@ su - $DEV_USER -c "virtualenv --python=python3 $VIRTUALENV_DIR"
 
 su - $DEV_USER -c "echo $PROJECT_DIR > $VIRTUALENV_DIR/.project"
 
-
 # Upgrade PIP
 su - $DEV_USER -c "$PIP install --upgrade pip"
+
+# Install PIP requirements
+su - $DEV_USER -c "$PIP install -r $PROJECT_DIR/requirements/base.txt"
 
 cat << EOF >> /home/$DEV_USER/.bashrc
 export PYTHONPATH=$PROJECT_DIR
