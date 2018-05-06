@@ -8,7 +8,7 @@ class Movie(models.Model):
     cover = models.ImageField(upload_to='covers', default=None)
     description = models.TextField()
     release_date = models.DateField()
-    duration_time = models.PositiveSmallIntegerField()
+    duration_time = models.DurationField()
 
     def __str__(self):
         return self.title
