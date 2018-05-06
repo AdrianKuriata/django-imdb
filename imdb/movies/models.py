@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.text import Truncator
-from django.utils.dateparse import parse_duration
 
 class Movie(models.Model):
     genres = models.ManyToManyField('movies.genre', related_name='movies', blank=True)
