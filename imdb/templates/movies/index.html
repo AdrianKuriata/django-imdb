@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block title %}
 Movies
 {% endblock title %}
@@ -15,14 +16,14 @@ Movies
                 <span class="card-title">{{movie.title}}</span>
             </div>
             <div class="card-content">
-                <small><span title="Released">{{movie.release_date}}</span>, <span title="Duration">{{movie.get_human_duration_time}}</span></small>
+                <small><span title="Released">{{movie.release_date}}</span>, <span title="Duration">{{movie.converted_duration_time}}</span></small>
                 <p>
-                    {{movie.get_cut_excerpt}}
+                    {{movie.truncated_excerpt}}
                 </p>
                 <p style="margin-top: 20px;">
                     Genres: <small>
                         {% for genre in movie.genres.all %}
-                            <a href="{% url 'movies:genre' genre.slug %}">{{genre.name}},</a> 
+                            <a href="{% url 'movies:genre' genre.slug %}">{{genre.name}},</a>
                         {% endfor %}
                     </small>
                 </p>
