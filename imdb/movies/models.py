@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.text import Truncator
+
 
 class Movie(models.Model):
     genres = models.ManyToManyField('movies.genre', related_name='movies', blank=True)
@@ -18,9 +20,8 @@ class Movie(models.Model):
         return '{:02d}h {:02d}m'.format(*divmod(self.duration_time, 60))
 
     @property
-    def get_cut_excerpt(self):
-        cutted = self.excerpt[:100]
-        return cutted + ' ...'
+    def truncated_excerpt(self):
+        return Truncator(self.excerpt).chars(100)
 
 class Genre(models.Model):
     name = models.CharField(max_length=300)
