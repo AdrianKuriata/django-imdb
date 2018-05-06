@@ -5,7 +5,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=550)
     slug = models.SlugField(max_length=550, unique=True)
     excerpt = models.CharField(max_length=300)
-    cover = models.ImageField(upload_to='covers', default=None)
+    cover = models.ImageField(upload_to='covers', null=True)
     description = models.TextField()
     release_date = models.DateField()
     duration_time = models.PositiveSmallIntegerField()
