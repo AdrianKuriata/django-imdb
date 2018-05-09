@@ -1,8 +1,5 @@
 from django.db import models
-from django.shortcuts import get_object_or_404
-from django.utils.text import slugify, Truncator
-
-import re
+from django.utils.text import  Truncator
 
 class Movie(models.Model):
     genres = models.ManyToManyField('movies.genre', related_name='movies', blank=True)

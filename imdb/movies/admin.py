@@ -1,9 +1,11 @@
 from django.contrib import admin
 
 from .models import Genre, Movie
-from django.utils.text import slugify
 
-import re
+from peoples.models import MoviePeople
+
+class MoviePeopleInline(admin.TabularInline):
+    model = MoviePeople
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
@@ -12,5 +14,9 @@ class MovieAdmin(admin.ModelAdmin):
             'title',
         )
     }
+
+    inlines = [
+        MoviePeopleInline,
+    ]
 
 admin.site.register(Genre)
